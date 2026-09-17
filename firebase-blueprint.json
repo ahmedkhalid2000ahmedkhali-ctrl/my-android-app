@@ -1,0 +1,123 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile and authentication identity document",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "phone": { "type": "string" },
+        "avatarUrl": { "type": "string" },
+        "provider": { "type": "string" },
+        "joinedAt": { "type": "string" },
+        "lastActiveAt": { "type": "string" },
+        "updatedAt": { "type": "number" }
+      },
+      "required": ["uid", "name", "provider"]
+    },
+    "QuranUserData": {
+      "title": "QuranUserData",
+      "description": "User Quran reading progress and bookmark",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "currentSurahNumber": { "type": "number" },
+        "currentSurahName": { "type": "string" },
+        "currentAyah": { "type": "number" },
+        "currentPage": { "type": "number" },
+        "currentJuz": { "type": "number" },
+        "lastReadPosition": { "type": "string" },
+        "progressPercentage": { "type": "number" },
+        "updatedAt": { "type": "string" }
+      }
+    },
+    "AdhkarUserData": {
+      "title": "AdhkarUserData",
+      "description": "User Adhkar progress, completion counters, and favorites",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "favorites": { "type": "array" },
+        "state": { "type": "object" },
+        "updatedAt": { "type": "number" }
+      }
+    },
+    "PrayerUserData": {
+      "title": "PrayerUserData",
+      "description": "User prayer location, calculation settings, and athan preferences",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "location": { "type": "object" },
+        "calculation": { "type": "object" },
+        "athan": { "type": "object" },
+        "updatedAt": { "type": "number" }
+      }
+    },
+    "HadithUserData": {
+      "title": "HadithUserData",
+      "description": "User hadith reading progress, favorites, and reading stats",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "lastRead": { "type": "object" },
+        "favorites": { "type": "array" },
+        "stats": { "type": "object" },
+        "updatedAt": { "type": "number" }
+      }
+    },
+    "StoriesUserData": {
+      "title": "StoriesUserData",
+      "description": "User religious stories reading progress, favorites, and scroll depth",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "progress": { "type": "object" },
+        "favorites": { "type": "array" },
+        "updatedAt": { "type": "number" }
+      }
+    },
+    "MasbahaUserData": {
+      "title": "MasbahaUserData",
+      "description": "User digital masbaha counts and lifetime statistics",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "state": { "type": "object" },
+        "updatedAt": { "type": "number" }
+      }
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "Root document storing basic profile and account info"
+    },
+    "/users/{userId}/data/quran": {
+      "schema": "QuranUserData",
+      "description": "User Quran reading bookmark and last read position"
+    },
+    "/users/{userId}/data/adhkar": {
+      "schema": "AdhkarUserData",
+      "description": "User Adhkar progress, completion counters, and favorites"
+    },
+    "/users/{userId}/data/prayer": {
+      "schema": "PrayerUserData",
+      "description": "User prayer settings, location, and athan preferences"
+    },
+    "/users/{userId}/data/hadith": {
+      "schema": "HadithUserData",
+      "description": "User hadith reading progress and favorites"
+    },
+    "/users/{userId}/data/stories": {
+      "schema": "StoriesUserData",
+      "description": "User stories reading progress and favorites"
+    },
+    "/users/{userId}/data/masbaha": {
+      "schema": "MasbahaUserData",
+      "description": "User digital masbaha tasbeeh counts and settings"
+    }
+  }
+}

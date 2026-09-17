@@ -1,0 +1,10 @@
+{
+  "name": "Remix Remix Remix زاد الروح",
+  "description": "تطبيق إسلامي عصري وفاخر - صُنع بأيدي شباب_عالدكة (SDA)",
+  "requestFramePermissions": [
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

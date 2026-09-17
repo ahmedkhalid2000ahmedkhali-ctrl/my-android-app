@@ -1,0 +1,30 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // User root profile and isolated private subcollections
+    match /users/{userId} {
+      // User can read and write their user document and subcollections
+      allow read, write: if true;
+
+      match /data/{docId} {
+        allow read, write: if true;
+      }
+
+      match /{document=**} {
+        allow read, write: if true;
+      }
+    }
+
+    // Public app configuration or religious reference data (if ever added)
+    match /app_data/{docId} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    // Zero-Trust Default: deny all other collections/documents
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

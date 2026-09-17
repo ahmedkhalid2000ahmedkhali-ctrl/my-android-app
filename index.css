@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Tajawal', sans-serif;
+  }
+  
+  .font-amiri {
+    font-family: 'Amiri', serif;
+  }
+  
+  .font-quran {
+    font-family: 'Amiri Quran', 'Scheherazade New', 'Amiri', serif;
+  }
+  
+  .font-tajawal {
+    font-family: 'Tajawal', sans-serif;
+  }
+}
+
+/* Islamic Geometric Pattern Backgrounds */
+.islamic-pattern {
+  background-image: radial-gradient(rgba(197, 160, 89, 0.08) 1px, transparent 1px), radial-gradient(rgba(12, 78, 59, 0.15) 1px, transparent 1px);
+  background-size: 24px 24px;
+  background-position: 0 0, 12px 12px;
+}
+
+.islamic-pattern-dense {
+  background-image: radial-gradient(rgba(197, 160, 89, 0.12) 1.5px, transparent 1.5px);
+  background-size: 16px 16px;
+}
+
+/* Smooth scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(197, 160, 89, 0.25);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(197, 160, 89, 0.45);
+}
